@@ -38,14 +38,12 @@ jobs:
 
       - name: Initialize Terraform
         run: |
-          c="terraform init"
-          c="$c -backend-config=\"bucket=${{ secrets.TF_BUCKET }}\""
-          c="$c -backend-config=\"key=${{ secrets.TF_STATE_KEY }}\""
-          c="$c -backend-config=\"region=${{ secrets.TF_REGION }}\""
-          c="$c -backend-config=\"dynamodb_table=${{ secrets.TF_LOCK_TABLE }}\""
-          c="$c -backend-config=\"encrypt=true\""
-          echo "$c"
-          eval "$c"
+          terraform init \ 
+            -backend-config="bucket=${{ secrets.TF_BUCKET }}" \
+            -backend-config="key=${{ secrets.TF_STATE_KEY }}" \
+            -backend-config="region=${{ secrets.TF_REGION }}" \
+            -backend-config="dynamodb_table=${{ secrets.TF_LOCK_TABLE }}" \
+            -backend-config="encrypt=true"
 
       - name: Terraform Format
         run: terraform fmt -check
