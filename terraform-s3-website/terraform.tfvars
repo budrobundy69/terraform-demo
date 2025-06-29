@@ -1,1 +1,0 @@
-bucket_name = "budrobundy-terraform-s3-website-bucket-001"
