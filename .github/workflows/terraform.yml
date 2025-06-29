@@ -37,12 +37,12 @@ jobs:
           aws-region: ${{ secrets.TF_REGION }}
 
       - name: Initialize Terraform
-        run: |
-          terraform init \ 
-            -backend-config="bucket=${{ secrets.TF_STATE_BUCKET }}" \
-            -backend-config="key=${{ secrets.TF_STATE_KEY }}" \
-            -backend-config="region=${{ secrets.TF_REGION }}" \
-            -backend-config="dynamodb_table=${{ secrets.TF_LOCK_TABLE }}" \
+        run: >
+          terraform init  
+            -backend-config="bucket=${{ secrets.TF_STATE_BUCKET }}" 
+            -backend-config="key=${{ secrets.TF_STATE_KEY }}" 
+            -backend-config="region=${{ secrets.TF_REGION }}" 
+            -backend-config="dynamodb_table=${{ secrets.TF_LOCK_TABLE }}" 
             -backend-config="encrypt=true"
 
       - name: Terraform Format
