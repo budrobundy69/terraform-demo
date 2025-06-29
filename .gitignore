@@ -89,7 +89,7 @@ fabric.properties
 ### Terraform template
 
 # Local .terraform directories
-**/.terraform/*
+**/.terraform/
 
 # Ignore variables files
 *.auto.tfvars
