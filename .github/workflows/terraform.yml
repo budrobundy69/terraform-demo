@@ -16,6 +16,10 @@ jobs:
     name: "Terraform Validate and Plan"
     runs-on: ubuntu-latest
 
+    defaults:
+      run:
+        working-directory: ./terraform-s3-website
+
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
