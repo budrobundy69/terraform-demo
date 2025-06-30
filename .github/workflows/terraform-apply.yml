@@ -7,6 +7,10 @@ jobs:
   terraform:
     runs-on: ubuntu-latest
 
+    defaults:
+      run:
+        working-directory: ./terraform-s3-website
+
     steps:
       - uses: actions/checkout@v4
 
